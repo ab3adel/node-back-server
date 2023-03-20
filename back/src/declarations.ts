@@ -7,6 +7,7 @@ export interface iProduct {
     price?:number,
     image?:any,
     quantity?:string,
+    filename?:string
 
 }
 export interface iUser {
