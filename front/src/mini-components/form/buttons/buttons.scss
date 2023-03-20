@@ -1,0 +1,18 @@
+.doButton {
+    background-color: var(--primary);
+    color:white;
+    &:hover {
+       opacity: 0.7;
+       background-color: var(--primary);
+    }
+}
+.cancelButton {
+    background-color: white;
+    border:1px solid var(--error);
+    color:var(--error);
+    &:hover {
+        background-color: var(--error);
+        color:white;
+    }
+    
+}

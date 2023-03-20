@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family:'Sono',
+  source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+    color:rgb(196, 160, 214)
+}
+@font-face {
+  font-family: 'Sono';
+  src: url('./assets//fonts/Sono/Sono-VariableFont_MONO\,wght.ttf');
+}
+:root {
+  --primary: darkorchid;
+  --error:red;
+  --secondary:rgb(196, 160, 214);
+  
+}
+.rtl {
+  direction: rtl;
+}

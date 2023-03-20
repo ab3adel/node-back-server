@@ -1,0 +1,125 @@
+.imgsGalery {
+    position: relative;
+    background-size: cover;
+
+   
+    border-radius: 10px;
+    height: 365px;
+    background-repeat: no-repeat;
+    
+
+    
+    .price {
+        position: absolute;
+        left:1rem;
+        top:1rem;
+        background-color: white;
+        color:var(--primary);
+        font-weight: bold;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        justify-content: center;
+        span {
+            margin:0 2px;
+        }
+    }
+    .icon {
+        width:43px;
+        height: 44px;
+        position: absolute;
+        z-index: 1;
+        cursor: pointer;
+        &:hover ,&:focus{
+            
+            animation: resize  ease-in-out  1 forwards ;
+            
+        }
+        
+    }
+    .left {
+        top:50%;
+        left:1rem;
+        
+    }
+    .right {
+        top:50%;
+        right: 1rem;
+    }
+    .dots {
+        position: absolute;
+        bottom: 1rem;
+        left: 20%;
+        right: 20%;
+        display: flex;
+        justify-content: space-evenly;
+        span {
+            width:13px;
+            height: 12px;
+            border-radius: 100%;
+            background-color: white;
+        }
+        .selected {
+            background-color: green;
+            border:1px solid white;
+        }
+    }
+   
+}
+.square_image_postCard.imgsGalery {
+    width:350px;
+    height: 350px;
+    background-size: cover;
+  margin: 0 auto;
+
+}
+.square-image.imgsGalery{
+    width: 500px;
+    height: 500px;
+    background-size: cover;
+    
+}
+
+@media screen and (min-width:567px) and (max-width:1024px) {
+    .imgsGalery {
+        
+    }
+    .square-image.imgsGalery {
+        width: 360px;
+        height: 360px;
+        background-size: cover;
+        
+    }
+    .square_image_postCard.imgsGalery {
+        width:300px;
+        height: 300px;
+        background-size: cover;
+    
+    }
+     
+}
+@media screen and (max-width:567px) {
+    .square_image_postCard.imgsGalery{
+        width:250px;
+        height: 250px ;
+        background-size: cover;
+    
+    }
+    .imgsGalery {
+       background-size:cover ;
+       height: 233px;
+       .icon {
+        width:20px;
+        height: 21px;
+       }
+    }
+    .square-image.imgsGalery {
+        height: 356px;
+        width:356px;
+        background-position: center;
+        
+    }
+    
+      
+}
