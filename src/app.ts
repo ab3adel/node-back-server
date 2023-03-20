@@ -4,7 +4,6 @@ import getConnction from './mongoose'
 import mongoose from 'mongoose';
 
 
-import {logout,signIn,signUp,resetPassword,getUser} from './routes/authentication';
 import {getProducts,createOneProduct} from './routes/products'
 
 import express from 'express'
@@ -36,13 +35,7 @@ const conn = mongoose.connection
 // Configure a middleware for 404s and the error handler
 
 //app.use("/file", uploader);
-app.get('/getUser',getUser)
 
-//app.configure(Authenticate);
-app.post('/login',signIn)
-app.get('/logout',logout)
-app.post('/signup',signUp)
-app.post('/resetpassword',resetPassword)
 app.get('/products',getProducts)
 
 app.post ('/createProduct',createOneProduct)

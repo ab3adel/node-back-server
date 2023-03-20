@@ -1,6 +1,6 @@
 import { iProduct,iOption,iParams,iUser} from '../declarations'
 import { Students } from '../services/products.service'
-import { checkAuthorization } from './authentication'
+
 import {Request,Response} from 'express'
 import getStudentModel from '../models/products.model'
 let student = new Students({model:getStudentModel()})
