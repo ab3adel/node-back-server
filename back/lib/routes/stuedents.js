@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteOne = exports.updateOneStudent = exports.createOneStudent = exports.getOneStudent = exports.getStuents = void 0;
 const students_service_1 = require("../services/students.service");
 const authentication_1 = require("./authentication");
-const students_model_1 = __importDefault(require("../models/students.model"));
-let student = new students_service_1.Students({ model: (0, students_model_1.default)() });
+const products_model_1 = __importDefault(require("../models/products.model"));
+let student = new students_service_1.Students({ model: (0, products_model_1.default)() });
 async function getStuents(req, res) {
     let resu = await (0, authentication_1.checkAuthorization)(req.headers);
     if (resu && resu.authorized) {
@@ -89,7 +89,6 @@ async function deleteOne(req, res) {
         let { id } = req.body;
         if (id) {
             let result = await student.remove(id);
-            console.log(result);
             if (result && result.success) {
                 res.status(200).json({ success: true, message: 'student has been deleted' });
             }

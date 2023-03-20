@@ -1,8 +1,4 @@
 "use strict";
-// students-model.ts - A mongoose model
-//
-// See http://mongoosejs.com/docs/models.html
-// for more of what you can do here.
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -26,50 +22,31 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-const bcrypt = __importStar(require("bcrypt"));
-const SALT_WORK_FACTOR = 10;
+const mongoose_paginate_v2_1 = __importDefault(require("mongoose-paginate-v2"));
+const imageSchema = new mongoose_1.default.Schema({
+    name: String,
+    desc: String,
+    data: Buffer,
+    contentType: String
+});
 function default_1() {
-    const modelName = 'users';
+    const modelName = 'students';
     const schema = new mongoose_1.default.Schema({
         id: { type: mongoose_1.Types.ObjectId },
-        username: { type: String, required: true, unique: true },
-        password: { type: String, required: true },
-        email: { type: String, required: true },
+        product_name: { type: String, required: true },
+        price: { type: Number, required: true },
+        quantity: { type: Number, required: true },
+        image: imageSchema,
+        filename: { type: String }
     }, {
         timestamps: true
     });
-    schema.pre('save', function (next) {
-        console.log('hashing password');
-        var user = this;
-        // only hash the password if it has been modified (or is new)
-        if (!user.isModified('password'))
-            return next();
-        // generate a salt
-        bcrypt.genSalt(SALT_WORK_FACTOR, function (err, salt) {
-            if (err)
-                return next(err);
-            // hash the password using our new salt
-            if (user.password) {
-                bcrypt.hash(user.password, salt, function (err, hash) {
-                    if (err)
-                        return next(err);
-                    // override the cleartext password with the hashed 
-                    console.log(hash, 'hashed');
-                    user.password = hash;
-                    next();
-                });
-            }
-        });
-    });
-    schema.methods.comparePassword = function (candidatePassword, cb) {
-        bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
-            if (err)
-                return cb(err);
-            cb(null, isMatch);
-        });
-    };
+    schema.plugin(mongoose_paginate_v2_1.default);
     // This is necessary to avoid model compilation errors in watch mode
     // see https://mongoosejs.com/docs/api/connection.html#connection_Connection-deleteModel
     if (mongoose_1.default.modelNames().includes(modelName)) {

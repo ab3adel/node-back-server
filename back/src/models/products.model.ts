@@ -3,9 +3,15 @@
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
 import getMongoose from '../mongoose'
-import mongooseClient,{ Model, Mongoose, Types } from 'mongoose';
+import mongooseClient,{ Model, Mongoose, Types ,Schema} from 'mongoose';
 import  paginate from 'mongoose-paginate-v2'
-
+const imageSchema = new mongooseClient.Schema({
+  name: String,
+  desc: String,
+  data: Buffer,
+  contentType: String
+  
+});
 export default  function (): Model<any> {
   const modelName = 'students';
 
@@ -14,7 +20,9 @@ export default  function (): Model<any> {
     product_name: {type:String, required:true },
     price: {type:Number, required:true},
     quantity: {type:Number, required:true},
-    image: {type:Buffer, required:true},
+    image:imageSchema,
+    filename:{type:String}
+  
   }, {
     timestamps: true
   });
