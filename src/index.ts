@@ -1,7 +1,7 @@
 import logger from './logger';
 import app from './app';
 
-const port = 3000;
+const port = 3033;
 const host='http://localhost'
 
 app.listen(port,()=>{

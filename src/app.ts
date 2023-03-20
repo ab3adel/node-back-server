@@ -2,7 +2,7 @@
 
 import getConnction from './mongoose'
 import mongoose from 'mongoose';
-
+var cors = require('cors')
 
 import {getProducts,createOneProduct} from './routes/products'
 
@@ -20,7 +20,7 @@ getConnction()
 const conn = mongoose.connection
 
 
-//app.use(cors());
+app.use(cors());
 //app.use(compress());
 
 // Host the public folder
