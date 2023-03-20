@@ -1,0 +1,15 @@
+.sidebar {
+    .logo {
+        width:100%;
+    }
+    .active {
+        background: var(--secondary);
+        color:white ;
+        font-size: large;
+        transition: .3s all ease-in-out;
+        .MuiSvgIcon-root{
+            color:white;
+            font-size: large;
+        }
+    }
+}
