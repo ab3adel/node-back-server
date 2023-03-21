@@ -20,7 +20,7 @@ export class Students {
           filename:1,
           quantity:1
           },
-          { skip: parseInt(params.page), limit: 10}
+          { skip: 10 * (params.page -1), limit: 10}
         );
 
         return {
