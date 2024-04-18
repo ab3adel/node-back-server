@@ -17,6 +17,7 @@ export default  function (): Model<any> {
 
   const schema = new mongooseClient.Schema({
     id:{ type: Types.ObjectId},
+    _id:{type:String,required:true},
     product_name: {type:String, required:true },
     price: {type:Number, required:true},
     quantity: {type:Number, required:true},

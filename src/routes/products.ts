@@ -7,7 +7,7 @@ let student = new Students({model:getStudentModel()})
 
 export async function getProducts (req:Request,res:Response) {
 
-
+ 
     let {page,page_count,locale}=req.query
     if (!locale) {
         res.send(400).json({success:false,message:"you must send locale "})

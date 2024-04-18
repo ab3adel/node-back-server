@@ -14,12 +14,7 @@ export class Students {
 
         let records = await this.model.find(
           { },
-          {
-          product_name:1,
-          price:1,
-          filename:1,
-          quantity:1
-          },
+          {},
           { skip: 10 * (params.page -1), limit: 10}
         );
 
